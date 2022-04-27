@@ -17,7 +17,7 @@ public class checkOutStep extends configTarget {
     public void user_input_first_name_last_name_and_postal_code() {
         driver.findElement(By.id("first-name")).sendKeys("ini");
         driver.findElement(By.id("last-name")).sendKeys("itu");
-        driver.findElement(By.id("postal-code")).sendKeys("passed");
+        driver.findElement(By.id("postal-code")).sendKeys("CheckOut");
 
     }
     @When("user click continue")
