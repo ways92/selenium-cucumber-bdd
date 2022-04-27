@@ -1,2 +1,2 @@
 # selenium-cucumber-bdd
-used testNG, cucumber BDD, selenium
+Automation testing Web UI used testNG, cucumber BDD, selenium
