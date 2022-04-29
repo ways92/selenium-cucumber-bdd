@@ -1,5 +1,7 @@
 package stepDefinitions;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -9,6 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
 import util.operation;
 
@@ -16,14 +19,24 @@ import config.configTarget;
 
 public class loginStep extends configTarget{
 
+    @Before
+    public void setUp(){
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver.exe");
+
+    }
+
+    @After
+    public void tearDown(){
+        driver.close();
+    }
 
 
     @Given("user on login page")
     public void user_on_login_page() throws Exception {
         String url = operation.getPropertyValue("url");
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/driver/chromedriver.exe");
         driver = new ChromeDriver();
         driver.get(url);
+
 
     }
 
@@ -35,7 +48,7 @@ public class loginStep extends configTarget{
 
     @And("^user enter (.*) password$")
     public void user_enter_password(String password) {
-        driver.findElement(By.id("user-name")).sendKeys(password);
+        driver.findElement(By.id("password")).sendKeys(password);
 
     }
 
@@ -49,11 +62,6 @@ public class loginStep extends configTarget{
     public void user_is_navigated_in_homepage() {
         WebElement actual = driver.findElement(By.xpath("//*[@id=\"header_container\"]/div[2]/div[1]"));
         Assert.assertTrue(actual.isDisplayed());
-    }
-
-    @AfterTest
-    public void tearDown(){
-        driver.close();
     }
 
     @When("user input valid username")
