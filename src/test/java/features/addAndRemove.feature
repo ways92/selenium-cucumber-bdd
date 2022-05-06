@@ -8,4 +8,4 @@ Feature: add and then remove
     And user click button login
     And user click add to cart
     And user click remove
-    Then user don't see in cart list
+    Then user don't see button remove on product

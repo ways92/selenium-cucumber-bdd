@@ -10,8 +10,9 @@ import org.testng.Assert;
 public class addToCartStep extends configTarget {
 
     @When("user click add to cart")
-    public void user_click_add_to_cart(){
+    public void user_click_add_to_cart() throws InterruptedException {
         driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
+        Thread.sleep(2000);
     }
 
     @Then("user see cart list")
