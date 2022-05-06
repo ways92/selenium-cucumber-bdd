@@ -27,8 +27,8 @@ public class loginStep extends configTarget{
     @After
     public void tearDown(){
         driver.close();
+        driver.quit();
     }
-
 
     @Given("user on login page")
     public void user_on_login_page() throws Exception {
