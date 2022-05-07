@@ -1,6 +1,6 @@
-Feature: add and then remove
+Feature: add and then remove on cart page
 
-  Scenario: user add and remove product to cart
+  Scenario: user add and remove product on cart page
 
     Given user on login page
     When user input valid username
